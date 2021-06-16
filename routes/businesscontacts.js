@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
         {
             //console.log(BusinessContactsList);
 
-            res.render('businesscontacts', {title: 'Business Contacts List', BusinessContactsList: contactsList})
+            res.render('businesscontactlist', {title: 'Business Contacts List', BusinessContactsList: contactsList})
         }
     });
 });
