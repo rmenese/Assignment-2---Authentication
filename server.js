@@ -11,7 +11,7 @@ SN: 300691712
 Submitted on: June 7, 2021
 */
 
-var app = require('./config/app');
+var app = require('./server/config/app');
 var debug = require('debug')('week4:server');
 var http = require('http');
 
