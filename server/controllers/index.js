@@ -23,22 +23,22 @@ Submitted on: June 18, 2021
     }
     
   module.exports.DisplayProjectsPage = (req, res, next) => {
-      res.render('index', { title: 'Projects',
+      res.render('projects', { title: 'Projects',
       displayName: req.user ? req.user.displayName : '' });
     }
   
   module.exports.DisplayServicesPage = (req, res, next) => {
-      res.render('index', { title: 'Services',
+      res.render('services', { title: 'Services',
       displayName: req.user ? req.user.displayName : '' });
     }
   
   module.exports.DisplayAboutPage = (req, res, next) => {
-      res.render('index', { title: 'About',
+      res.render('aboutme', { title: 'About',
       displayName: req.user ? req.user.displayName : '' });
     }
     
   module.exports.DisplayContactPage = (req, res, next) => {
-      res.render('index', { title: 'Contact',
+      res.render('contact', { title: 'Contact',
       displayName: req.user ? req.user.displayName : '' });
     }
   
@@ -105,7 +105,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
     }
 }
 
-module.exports.processRegisterPage = (res, res, next) => {
+module.exports.processRegisterPage = (req, res, next) => {
     // instantiate a user object
     let newUser = new User({
         username: req.body.username,
@@ -114,7 +114,7 @@ module.exports.processRegisterPage = (res, res, next) => {
         displayName: req.body.displayName
     });
 
-    User.register(newUser, req.body.password, (user) => {
+    User.register(newUser, req.body.password, (err) => {
         if(err)
         {
           console.log("Error inserting New User");

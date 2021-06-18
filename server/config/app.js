@@ -47,7 +47,7 @@ mongoDB.once('open', ()=>{
   console.log('Connected to MongoDB...');
 });
 
-dbConnection.once('connected', ()=>{
+/*dbConnection.once('connected', ()=>{
   console.log('MongoDB Connected');
 });
 
@@ -57,7 +57,7 @@ dbConnection.on('disconnected', ()=>{
 
 dbConnection.on('reconnected', ()=>{
   console.log('MongoDB Reconnected');
-});
+});*/
 
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
@@ -77,7 +77,7 @@ app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 // setup express session
-let Auth = require('./auth');
+/*let Auth = require('./auth');*/
 
 app.use(session({
   secret: "SomeSecret",

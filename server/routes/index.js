@@ -11,22 +11,22 @@ let router = express.Router();
 let indexController = require('../controllers/index')
 
 /* GET home page. */
-router.get('/', indexController.displayHomePage);
+router.get('/', indexController.DisplayHomePage);
 
 /* GET home page. */
-router.get('/home', indexController.displayHomePage);
+router.get('/home', indexController.DisplayHomePage);
 
 /* GET About Us page. */
-router.get('/about', indexController.displayAboutPage);
+router.get('/about', indexController.DisplayAboutPage);
 
 /* GET Products page. */
-router.get('/projects', indexController.displayProductsPage);
+router.get('/projects', indexController.DisplayProjectsPage);
 
 /* GET Services page. */
-router.get('/services', indexController.displayServicesPage);
+router.get('/services', indexController.DisplayServicesPage);
 
 /* GET Contact Us page. */
-router.get('/contact', indexController.displayContactPage);
+router.get('/contact', indexController.DisplayContactPage);
 
 /* GET Route for displaying the Login page  */
 router.get('/login', indexController.DisplayLoginPage);
@@ -35,10 +35,10 @@ router.get('/login', indexController.DisplayLoginPage);
 router.post('/login', indexController.ProcessLoginPage);
 
 /* GET Route for displaying the Register page  */
-router.get('/register', indexController.DisplayRegisterPage);
+router.get('/register', indexController.displayRegisterPage);
 
 /* POST Route for processing the Register page */
-router.post('/register', indexController.ProcessRegisterPage);
+router.post('/register', indexController.processRegisterPage);
 
 /* GET Route to perform UserLogout */
 router.get('/logout', indexController.PerformLogout);

@@ -1,93 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title><%= title %></title>
-
-  <!-- CSS Section -->
-  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.min.css">
-  <link rel='stylesheet' href='/Content/app.css' />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title><%= title %></title>
+<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.min.css">
+<link rel='stylesheet' href='/Content/app.css' />
 </head>
 <body>
-
-  <!-- Main Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container">
-     <img src="/Assets/images/logo1.png" style="color:black;" class="pr-3" width="90" height="90"/>
-      <a class="navbar-brand" href="/">Remedios Meneses</a>
-
-     
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-
-        <% if (title == "Home") { %>
-        <li class="nav-item active">
-        <% } else { %>
-        <li class="nav-item"></li>
-        <% } %>
-            <a class="nav-link" aria-current="page" href="/home"><i class="fas fa-laptop-house"></i> Home </a>
-        </li>
-
-        <% if (title == "About Me") { %>
-        <li class="nav-item active">
-        <% } else { %>
-        <li class="nav-item">
-        <% } %>
-            <a class="nav-link" aria-current="page" href="/about"> <i class="fas fa-info-circle"></i> About Me </a>
-        </li>
-
-        <% if (title == "Projects") { %>
-        <li class="nav-item active">
-        <% } else { %>
-        <li class="nav-item">
-        <% } %>
-            <a class="nav-link" aria-current="page" href="/projects"> <i class="fab fa-elementor"></i> Projects </a>
-        </li>
-
-        <% if (title == "Services") { %>
-        <li class="nav-item active">
-        <% } else { %>
-        <li class="nav-item">
-        <% } %>
-            <a class="nav-link" aria-current="page" href="/services"> <i class="fas fa-cog"></i> Services </a>
-        </li>
-
-        <% if (title == "Business Contacts") { %>
-        <li class="nav-item active">
-        <% } else { %>
-        <li class="nav-item">
-        <% } %>
-            <a class="nav-link" aria-current="page" href="/contacts-list"> <i class="fas fa-address-card"></i> Business Contacts </a>
-        </li>
-
-        
-        <% if (title == "My Contact") { %>
-        <li class="nav-item active">
-        <% } else { %>
-        <li class="nav-item">
-        <% } %>
-            <a class="nav-link" aria-current="page" href="/contact"><i class="fas fa-phone"></i> My Contact </a>
-        </li>
-
-        <% if(typeof displayName == 'string' && displayName) {%>
-            <li class="navbar-text"><i class="fas fa-lg fa-user"></i> Welcome, <%= displayName %></li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/logout"><i class="fas fa-lg fa-sign-out-alt"></i> Logout </a>
-            </li>
-          <% } else { %>
-            <li class="nav-item active">
-              <a class="nav-link" href="/login"><i class="fas fa-lg fa-sign-in-alt"></i> Login </a>
-            </li>
-          <% } %>
-          
-        </ul>
-
-          
-      </div>
-    </div>
-  </nav>
