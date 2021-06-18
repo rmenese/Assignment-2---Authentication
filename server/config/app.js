@@ -12,6 +12,27 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
+// modules for authentication
+let session = require('express-session');
+let passport = require('passport');
+let passportLocal = require('passport-local');
+
+// module for auth messaging and error management
+let flash = require('connect-flash');
+
+// authentication objects
+let localStrategy = passportLocal.Strategy; // alias
+
+//passport user configuration
+
+//create a user model instance
+let userModel = require('../models/user');
+let User = userModel.User; // alias
+
+// serialize and deserialize the user info
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 //database setup
 let mongoose = require('mongoose');
 let DB = require('./db');
@@ -19,10 +40,23 @@ let DB = require('./db');
 //point mongoose to the DB URI
 mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
+
 let mongoDB = mongoose.connection;
 mongoDB.on('error', console.error.bind(console, 'Connection Error:'));
 mongoDB.once('open', ()=>{
   console.log('Connected to MongoDB...');
+});
+
+dbConnection.once('connected', ()=>{
+  console.log('MongoDB Connected');
+});
+
+dbConnection.on('disconnected', ()=>{
+  console.log('MongoDB Disconnected');
+});
+
+dbConnection.on('reconnected', ()=>{
+  console.log('MongoDB Reconnected');
 });
 
 let indexRouter = require('../routes/index');
@@ -41,6 +75,26 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
+
+// setup express session
+let Auth = require('./auth');
+
+app.use(session({
+  secret: "SomeSecret",
+  saveUninitialized: false,
+  resave: false
+}));
+
+// initialize flash
+app.use(flash());
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// implement Auth Strategy
+passport.use(User.createStrategy());
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
