@@ -82,6 +82,7 @@ Submitted on: June 18, 2021
           {
             return next(err);
           }
+         
   
           return res.redirect('/contacts-list');
         });
@@ -148,6 +149,6 @@ module.exports.processRegisterPage = (req, res, next) => {
   
 module.exports.PerformLogout = (req, res, next) => {
             req.logout();
-            res.redirect('/');
+            res.redirect('/login');
     
 }

@@ -72,8 +72,8 @@
 
     let updatedBusinesscontaclist =Contacts({
         "_id": id,
-        "contactname": req.body.name,
-        "contactnumber": req.body.contactname,
+        "contactname": req.body.contactname,
+        "contactnumber": req.body.contactnumber,
         "email": req.body.email
     });
 
@@ -86,7 +86,7 @@
         else
         {
             //refresh the businesscontactlist
-            res.redirect('/business-list');
+            res.redirect('/contacts-list');
 
         }
     });
@@ -104,7 +104,7 @@
        else
        {
             //refresh the businesscontactlist
-            res.redirect('/business-list');
+            res.redirect('/contacts-list');
        }
     });
   }

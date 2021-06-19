@@ -21,6 +21,8 @@
                       <th class="text-center">Contact Name</th>
                       <th class="text-center">Contact Number</th>
                       <th class="text-center">Email</th>
+                      <th class="text-center"></th>
+                      <th class="text-center"></th>
                       <% if(typeof displayName == 'string' && displayName) {%>
                         <th>class="text-center"</th>
                         <th>class="text-center"</th>
@@ -37,13 +39,21 @@
                             <td class="text-center"><%= BusinessContactsList[count].contactname %></td>
                             <td class="text-center"><%= BusinessContactsList[count].contactnumber %></td>
                             <td class="text-center"><%= BusinessContactsList[count].email %></td>
+                             <td class="text-center">
+                                    <a href="/contacts-list/edit/<%= BusinessContactsList[count]._id %>" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-pencil alt"></i> Edit</a>
+                            </td>
+                             <td class="text-center">
+                                    <a href="/contacts-list/delete/<%= BusinessContactsList[count]._id %>" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash-alt"> Delete</i></a>
+                            </td>
                             <% if(typeof displayName == 'string' && displayName) {%>
                             <td class="text-center">
-                                    <a href="/business-list/edit/<%= BusinessContactsList[count]._id %>" class="btn btn-primary btn-sm">
+                                    <a href="/contacts-list/edit/<%= BusinessContactsList[count]._id %>" class="btn btn-primary btn-sm">
                                     <i class="fas fa-pencil alt"></i> Edit</a>
                             </td>
                             <td class="text-center">
-                                    <a href="/business-list/delete/<%= BusinessContactsList[count]._id %>" class="btn btn-danger btn-sm">
+                                    <a href="/contacts-list/delete/<%= BusinessContactsList[count]._id %>" class="btn btn-danger btn-sm">
                                     <i class="fas fa-trash-alt"> Delete</i></a>
                             </td>
                             <% } %>
